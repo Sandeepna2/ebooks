@@ -4,21 +4,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>eBooks</title>
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>eBooks | Home - Discover & Read Amazing Books</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="scss/styles.scss" />
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <script type="module" src="js/main.js"></script>
-
 </head>
 
 <body>
 
-  <div class="bg-primary">
-    <nav class="navbar navbar-expand-lg bg-primary container" data-bs-theme="dark">
+  <div class="bg-primary shadow-sm">
+    <nav class="navbar navbar-expand-lg bg-primary container navbar-dark" data-bs-theme="dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/">eBooks</a>
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <i class="fas fa-book-reader me-2"></i>eBooks
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
           aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -26,33 +26,33 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/">Home</a>
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="about.html">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="book/index.html">Books</a>
+              <a class="nav-link" href="books.html">Books</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="author/index.html">Authors</a>
+              <a class="nav-link" href="authors.html">Authors</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="contact.html">Contact</a>
             </li>
           </ul>
-          <ul class="d-flex navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="cart.html"><i class="bi bi-cart4"
-                  style="font-size: 1.3rem; color: white"></i></a>
+          <ul class="d-flex navbar-nav ms-auto align-items-center">
+            <li class="nav-item me-3">
+              <a class="nav-link nav-cart-link" href="cart.html" title="Shopping Cart">
+                <i class="fas fa-shopping-cart fs-5 text-white"></i>
+                <span class="badge bg-danger cart-badge-count ms-1">0</span>
+              </a>
             </li>
-
             <li class="nav-item">
-              <a class="btn btn-outline-light mx-4" href="login.html">login</a>
+              <a class="btn btn-outline-light me-2" href="login.html">Login</a>
             </li>
-
             <li class="nav-item">
-              <a class="btn btn-outline-light" href="register.html">Register</a>
+              <a class="btn btn-light text-primary fw-bold" href="register.html">Register</a>
             </li>
           </ul>
         </div>
@@ -60,7 +60,8 @@
     </nav>
   </div>
 
-  <div id="carouselExampleDark" class="carousel carousel-dark slide">
+  <!-- Hero Carousel -->
+  <div id="carouselExampleDark" class="carousel carousel-dark slide shadow-sm" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
         aria-current="true" aria-label="Slide 1"></button>
@@ -68,61 +69,58 @@
       <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="10000" style="
-              background-image: url('./assets/images/book1.jpg');
+      <div class="carousel-item active" data-bs-interval="5000" style="
+              background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('./assets/images/book1.jpg');
               background-size: cover;
               background-position: center;
-              min-height: 450px;
+              min-height: 480px;
             ">
-        <!-- <img src="..." class="d-block w-100" alt="..."> -->
-        <div class="carousel-caption d-none d-md-block bg-white bg-opacity-75 px-4">
-          <h1>
-            The Enchanted Forest<small class="text-success">Author: Emily Winters</small>
-          </h1>
-          <p class="lead">
-            In a realm where magic thrives, a young girl named Clara
-            stumbles upon an ancient forest filled with mythical creatures
-            and hidden wonders.
+        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 text-white p-4 rounded-3 shadow">
+          <h1 class="display-6 fw-bold">The Enchanted Forest</h1>
+          <p class="text-info mb-2"><i class="fas fa-user-pen me-1"></i> Author: Emily Winters</p>
+          <p class="lead text-light fs-6">
+            In a realm where magic thrives, a young girl named Clara stumbles upon an ancient forest filled with mythical creatures and hidden wonders.
           </p>
-          <button class="btn-outline-primary">Read More</button>
+          <div class="d-flex justify-content-center gap-2">
+            <a href="book-details.html?id=1" class="btn btn-info text-white">Read Details</a>
+            <button class="btn btn-success btn-buy-now" data-book-id="1">Buy Now ($19.99)</button>
+          </div>
         </div>
       </div>
-      <div class="carousel-item" data-bs-interval="2000" style="
-              background-image: url('./assets/images/book-2.jpg');
+      <div class="carousel-item" data-bs-interval="5000" style="
+              background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('./assets/images/book-2.jpg');
               background-size: cover;
               background-position: center;
-              min-height: 450px;
+              min-height: 480px;
             ">
-        <!-- <img src="..." class="d-block w-100" alt="..."> -->
-        <div class="carousel-caption d-none d-md-block bg-white bg-opacity-75 px-4">
-          <h1>
-            Shadows of the Past
-            <small class="text-success">Author: Sarah Larkin</small>
-          </h1>
-          <p class="lead">
-            Detective Mark Thompson is drawn into a web of intrigue when a
-            series of disappearances rock his small town.
+        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 text-white p-4 rounded-3 shadow">
+          <h1 class="display-6 fw-bold">Shadows of the Past</h1>
+          <p class="text-info mb-2"><i class="fas fa-user-pen me-1"></i> Author: Sarah Larkin</p>
+          <p class="lead text-light fs-6">
+            Detective Mark Thompson is drawn into a web of intrigue when a series of disappearances rock his small town.
           </p>
-          <button class="btn-outline-primary">Read More</button>
+          <div class="d-flex justify-content-center gap-2">
+            <a href="book-details.html?id=2" class="btn btn-info text-white">Read Details</a>
+            <button class="btn btn-success btn-buy-now" data-book-id="2">Buy Now ($15.99)</button>
+          </div>
         </div>
       </div>
-      <div class="carousel-item" style="
-              background-image: url('./assets/images/book-3.jpg');
+      <div class="carousel-item" data-bs-interval="5000" style="
+              background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('./assets/images/book-3.jpg');
               background-size: cover;
               background-position: center;
-              min-height: 450px;
+              min-height: 480px;
             ">
-        <!-- <img src="..." class="d-block w-100" alt="..."> -->
-        <div class="carousel-caption d-none d-md-block bg-white bg-opacity-75 px-4">
-          <h1>
-            Whispers of the Ocean<small class="text-success">Author: James Holloway</small>
-          </h1>
-          <p class="lead">
-            Marine biologist Mia Carter returns to her coastal hometown to
-            study dolphins, but she finds more than just research
-            opportunities.
+        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 text-white p-4 rounded-3 shadow">
+          <h1 class="display-6 fw-bold">Whispers of the Ocean</h1>
+          <p class="text-info mb-2"><i class="fas fa-user-pen me-1"></i> Author: James Holloway</p>
+          <p class="lead text-light fs-6">
+            Marine biologist Mia Carter returns to her coastal hometown to study dolphins, but she finds more than just research opportunities.
           </p>
-          <button class="btn-outline-primary">Read More</button>
+          <div class="d-flex justify-content-center gap-2">
+            <a href="book-details.html?id=3" class="btn btn-info text-white">Read Details</a>
+            <button class="btn btn-success btn-buy-now" data-book-id="3">Buy Now ($25.99)</button>
+          </div>
         </div>
       </div>
     </div>
@@ -135,138 +133,74 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-  </header>
 
   <main>
-    <!-- Our books -->
-    <div class="container mt-5">
-      <div class="row">
-          <!-- Book Card 1 -->
-          <div class="col-md-3 book-card">
-              <div class="card text-center">
-                  <img src="https://via.placeholder.com/150" alt="Book Title 1" class="book-image card-img-top">
-                  <div class="card-body">
-                      <h5 class="card-title">Book Title 1</h5>
-                      <p class="card-text">Author Name 1</p>
-                      <p class="card-text"><strong>$19.99</strong></p>
-                  </div>
-                  <div class="card-footer ">
-                      <a href="#" class="btn btn-primary me-2">View Details</a>
-                      <a href="#" class="btn btn-success">Buy</a>
-                  </div>
-              </div>
-          </div>
-          <!-- Book Card 2 -->
-          <div class="col-md-3 book-card">
-              <div class="card text-center">
-                  <img src="https://via.placeholder.com/150" alt="Book Title 2" class="book-image card-img-top">
-                  <div class="card-body">
-                      <h5 class="card-title">Book Title 2</h5>
-                      <p class="card-text">Author Name 2</p>
-                      <p class="card-text"><strong>$15.99</strong></p>
-                  </div>
-                  <div class="card-footer ">
-                    <a href="#" class="btn btn-primary me-2">View Details</a>
-                    <a href="#" class="btn btn-success">Buy</a>
-                </div>
-              </div>
-          </div>
-          <!-- Book Card 3 -->
-          <div class="col-md-3 book-card">
-              <div class="card text-center">
-                  <img src="https://via.placeholder.com/150" alt="Book Title 3" class="book-image card-img-top">
-                  <div class="card-body">
-                      <h5 class="card-title">Book Title 3</h5>
-                      <p class="card-text">Author Name 3</p>
-                      <p class="card-text"><strong>$25.99</strong></p>
-                  </div>
-                  <div class="card-footer ">
-                    <a href="#" class="btn btn-primary me-2">View Details</a>
-                    <a href="#" class="btn btn-success">Buy</a>
-                </div>
-              </div>
-          </div>
-          <!-- Book Card 4 -->
-          <div class="col-md-3 book-card">
-              <div class="card text-center">
-                  <img src="https://via.placeholder.com/150" alt="Book Title 4" class="book-image card-img-top">
-                  <div class="card-body">
-                    <h5 class="card-title">Book Title 1</h5>
-                    <p class="card-subtitle mb-2 text-muted">Author: Jane Doe</p>
-                    <p class="card-text"><strong>Price: $15.99</strong></p>
-                  </div>
-                  <div class="card-footer ">
-                    <a href="#" class="btn btn-primary me-2">View Details</a>
-                    <a href="#" class="btn btn-success">Buy</a>
-                </div>
-              </div>
-          </div>
+    <!-- Featured Books Section -->
+    <div class="container my-5">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-4">
+        <div>
+          <h2 class="fw-bold mb-1"><i class="fas fa-fire text-danger me-2"></i>Featured eBooks</h2>
+          <p class="text-muted mb-0">Handpicked bestsellers and top rated titles for you</p>
+        </div>
+        <a href="books.html" class="btn btn-outline-primary mt-3 mt-md-0">View All Books <i class="fas fa-arrow-right ms-1"></i></a>
       </div>
-  
-      <!-- Pagination -->
-      <nav aria-label="Page navigation">
-          <ul class="pagination justify-content-center mt-4">
-              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item"><a class="page-link" href="#">Next</a></li>
-          </ul>
-      </nav>
-  </div>
 
+      <div class="row books-container" id="all-books-container">
+        <!-- Rendered dynamically by main.js -->
+      </div>
+    </div>
 
-
-    <!-- Catagories section -->
-
-
-    <div class="container mt-5">
-      <h1 class="text-center mb-4">Categories</h1>
-      <div class="row">
-        <!-- Category 1 -->
-        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h5 class="card-title text-center">Category 1</h5>
+    <!-- Categories section -->
+    <div class="container my-5 py-4 bg-white rounded-3 shadow-sm">
+      <h2 class="text-center fw-bold mb-4">Browse by Categories</h2>
+      <div class="row g-3">
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <a href="books.html" class="text-decoration-none">
+            <div class="card h-100 category-card text-center p-3">
+              <div class="card-body">
+                <i class="fas fa-dragon fa-2x text-primary mb-2"></i>
+                <h5 class="card-title text-dark">Fantasy & Sci-Fi</h5>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
-
-        <!-- Category 2 -->
-        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h5 class="card-title text-center">Category 2</h5>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <a href="books.html" class="text-decoration-none">
+            <div class="card h-100 category-card text-center p-3">
+              <div class="card-body">
+                <i class="fas fa-user-secret fa-2x text-primary mb-2"></i>
+                <h5 class="card-title text-dark">Mystery & Thriller</h5>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
-
-        <!-- Category 3 -->
-        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h5 class="card-title text-center">Category 3</h5>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <a href="books.html" class="text-decoration-none">
+            <div class="card h-100 category-card text-center p-3">
+              <div class="card-body">
+                <i class="fas fa-heart fa-2x text-primary mb-2"></i>
+                <h5 class="card-title text-dark">Romance & Drama</h5>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
-
-        <!-- Category 4 -->
-        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h5 class="card-title text-center">Category 4</h5>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <a href="books.html" class="text-decoration-none">
+            <div class="card h-100 category-card text-center p-3">
+              <div class="card-body">
+                <i class="fas fa-landmark fa-2x text-primary mb-2"></i>
+                <h5 class="card-title text-dark">Classic Literature</h5>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </div>
 
-
     <!-- Testimonials -->
-
-    <div class="container mt-5">
-      <h1 class="text-center mb-4">Testimonials</h1>
-      <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="container my-5">
+      <h2 class="text-center fw-bold mb-4">What Our Readers Say</h2>
+      <div id="testimonialCarousel" class="carousel slide shadow" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active"
             aria-current="true" aria-label="Slide 1"></button>
@@ -279,24 +213,24 @@
           <div class="carousel-item active">
             <div class="testimonial-slide">
               <div>
-                <p>"Great service! Highly recommended."</p>
-                <small>- John Doe</small>
+                <p>"Great selection of eBooks and super fast download delivery. Highly recommended!"</p>
+                <small class="fw-bold">- John Doe, Avid Reader</small>
               </div>
             </div>
           </div>
           <div class="carousel-item">
             <div class="testimonial-slide">
               <div>
-                <p>"Excellent product quality. Will buy again!"</p>
-                <small>- Jane Smith</small>
+                <p>"Excellent reader experience and customer support. Will buy again!"</p>
+                <small class="fw-bold">- Jane Smith, Book Club Host</small>
               </div>
             </div>
           </div>
           <div class="carousel-item">
             <div class="testimonial-slide">
               <div>
-                <p>"Fast shipping and amazing customer support."</p>
-                <small>- Mike Johnson</small>
+                <p>"Amazing price deals on bestseller authors. The best digital bookstore platform!"</p>
+                <small class="fw-bold">- Mike Johnson, Student</small>
               </div>
             </div>
           </div>
@@ -312,125 +246,105 @@
       </div>
     </div>
 
-
     <!-- Enquiry Form -->
-
-    <div class="container mt-5 mx-auto">
-      <h2 class="mb-4">Book Enquiry Form</h2>
-      <form id="bookEnquiryForm">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="mb-3">
-              <label for="name" class="form-label">Your Name</label>
-              <input type="text" class="form-control" id="name" required>
+    <div class="container my-5">
+      <div class="card p-4 shadow-sm border-0">
+        <h2 class="mb-3 fw-bold text-primary"><i class="fas fa-question-circle me-2"></i>Book Enquiry Form</h2>
+        <p class="text-muted mb-4">Can't find a specific book? Send us an inquiry and we will get it for you.</p>
+        <form id="bookEnquiryForm">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="name" class="form-label font-weight-bold">Your Name</label>
+                <input type="text" class="form-control" id="name" placeholder="John Doe" required />
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="name@example.com" required />
+              </div>
+              <div class="mb-3">
+                <label for="bookTitle" class="form-label">Book Title</label>
+                <input type="text" class="form-control" id="bookTitle" placeholder="e.g. The Hobbit" required />
+              </div>
             </div>
-            <div class="mb-3">
-              <label for="email" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="email" required>
-            </div>
-            <div class="mb-3">
-              <label for="bookTitle" class="form-label">Book Title</label>
-              <input type="text" class="form-control" id="bookTitle" required>
-            </div>
-            <div class="mb-3">
-              <label for="author" class="form-label">Author</label>
-              <input type="text" class="form-control" id="author">
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="mb-3">
-              <label for="isbn" class="form-label">International Standard Book Number (if known)</label>
-              <input type="text" class="form-control" id="isbn">
-            </div>
-            <div class="mb-3">
-              <label for="inquiryType" class="form-label">Nature of Inquiry</label>
-              <select class="form-select" id="inquiryType" required>
-                <option value="">Select an option</option>
-                <option value="availability">Book Availability</option>
-                <option value="price">Price Inquiry</option>
-                <option value="shipping">Shipping Information</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-            <div class="mb-3">
-              <label for="message" class="form-label">Additional Details</label>
-              <textarea class="form-control" id="message" rows="5" required></textarea>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="inquiryType" class="form-label">Nature of Inquiry</label>
+                <select class="form-select" id="inquiryType" required>
+                  <option value="">Select an option</option>
+                  <option value="availability">Book Availability</option>
+                  <option value="price">Price Inquiry</option>
+                  <option value="shipping">Digital Download Info</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Additional Details</label>
+                <textarea class="form-control" id="message" rows="4" placeholder="Tell us more details..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-100 mt-2 fw-bold">
+                <i class="fas fa-paper-plane me-2"></i>Submit Inquiry
+              </button>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <button type="submit" class="btn btn-primary">Submit Inquiry</button>
-          </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </main>
 
   <!-- Footer -->
-
   <footer class="bg-primary text-white mt-5">
     <div class="container py-4">
-        <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4">
-                <h5 class="text-uppercase">About Company</h5>
-                <p>We are dedicated to providing high-quality products and excellent customer service.</p>
-                <h6>Follow Us</h6>
-                <div class="social-icons">
-                    <a href="#" class="text-white me-2 facebook" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="text-white me-2 twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-white me-2 instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-white linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-6 mb-4">
-                <h5 class="text-uppercase">Quick Links</h5>
-                <ul class="list-unstyled">
-                    <li><a href="#" class="text-white text-decoration-none">Home</a></li>
-                    <li><a href="#" class="text-white text-decoration-none">About Us</a></li>
-                    <li><a href="#" class="text-white text-decoration-none">Services</a></li>
-                    <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <h5 class="text-uppercase">Contact Us</h5>
-                <p><i class="fas fa-map-marker-alt me-2"></i> 123 Street, City, Country</p>
-                <p><i class="fas fa-phone me-2"></i> +1 234 567 8900</p>
-                <p><i class="fas fa-envelope me-2"></i> info@example.com</p>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <h5 class="text-uppercase">Newsletter</h5>
-                <p>Stay updated with our latest news and offers!</p>
-                <form>
-                    <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Enter your email" required aria-label="Email address for newsletter">
-                        <button class="btn btn-light" type="submit" aria-label="Subscribe to newsletter">Subscribe</button>
-                    </div>
-                </form>
-            </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <h5 class="text-uppercase fw-bold"><i class="fas fa-book-reader me-2"></i>eBooks Store</h5>
+          <p>We are dedicated to providing high-quality digital books and an exceptional reading experience.</p>
+          <h6>Follow Us</h6>
+          <div class="social-icons">
+            <a href="#" class="facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
         </div>
-        <hr class="my-4">
-        <div class="row align-items-center">
-            <div class="col-md-7 text-center text-md-start">
-                <p class="mb-0">&copy; 2023 Your Company Name. All rights reserved.</p>
-            </div>
-            <div class="col-md-5 text-center text-md-end">
-                <a href="#" class="text-white text-decoration-none me-3">Privacy Policy</a>
-                <a href="#" class="text-white text-decoration-none">Terms of Use</a>
-            </div>
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h5 class="text-uppercase fw-bold">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+            <li><a href="about.html" class="text-white text-decoration-none">About Us</a></li>
+            <li><a href="books.html" class="text-white text-decoration-none">Books Catalog</a></li>
+            <li><a href="contact.html" class="text-white text-decoration-none">Contact Us</a></li>
+          </ul>
         </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h5 class="text-uppercase fw-bold">Contact Info</h5>
+          <p><i class="fas fa-map-marker-alt me-2"></i> 123 Reader St, Book City, BC 10001</p>
+          <p><i class="fas fa-phone me-2"></i> +1 800 123 4567</p>
+          <p><i class="fas fa-envelope me-2"></i> support@ebooks.com</p>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h5 class="text-uppercase fw-bold">Newsletter</h5>
+          <p>Subscribe to get special eBook discounts!</p>
+          <form id="newsletterForm">
+            <div class="input-group mb-3">
+              <input type="email" class="form-control" placeholder="Enter your email" required aria-label="Email address for newsletter" />
+              <button class="btn btn-light text-primary font-weight-bold" type="submit">Join</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <hr class="my-4 border-light opacity-50" />
+      <div class="row align-items-center">
+        <div class="col-md-7 text-center text-md-start">
+          <p class="mb-0">&copy; 2026 eBooks Inc. All rights reserved.</p>
+        </div>
+        <div class="col-md-5 text-center text-md-end">
+          <a href="#" class="text-white text-decoration-none me-3">Privacy Policy</a>
+          <a href="#" class="text-white text-decoration-none">Terms of Use</a>
+        </div>
+      </div>
     </div>
-</footer>
-
-
-
-
-
-
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  </footer>
 
 </body>
 

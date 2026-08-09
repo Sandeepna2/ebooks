@@ -4,19 +4,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cart</title>
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>eBooks | Shopping Cart</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="scss/styles.scss" />
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <script type="module" src="js/main.js"></script>
 </head>
 
 <body>
-  <header class="bg-primary">
-    <nav class="navbar navbar-expand-lg bg-primary container" data-bs-theme="dark">
+  <header class="bg-primary shadow-sm">
+    <nav class="navbar navbar-expand-lg bg-primary container navbar-dark" data-bs-theme="dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/">eBooks</a>
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <i class="fas fa-book-reader me-2"></i>eBooks
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
           aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -24,38 +25,35 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link " href="index.html">Home</a>
+              <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="about.html">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/book">Books</a>
+              <a class="nav-link" href="books.html">Books</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/author">Authors</a>
+              <a class="nav-link" href="authors.html">Authors</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="contact.html">Contact</a>
-            </li>
-
-          </ul>
-          <ul class="d-flex navbar-nav ms-auto ">
-            <li class="nav-item">
-              <a class="nav-link" href="cart.html"><i class="bi bi-cart4"
-                  style="font-size: 1.3rem; color: white;"></i></a>
-            </li>
-
-
-            <li class="nav-item">
-              <a class="btn btn-outline-light mx-4" href="login.html">login</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="btn btn-outline-light" href="register.html">Register</a>
+              <a class="nav-link" href="contact.html">Contact</a>
             </li>
           </ul>
-
+          <ul class="d-flex navbar-nav ms-auto align-items-center">
+            <li class="nav-item me-3">
+              <a class="nav-link nav-cart-link active" aria-current="page" href="cart.html" title="Shopping Cart">
+                <i class="fas fa-shopping-cart fs-5 text-white"></i>
+                <span class="badge bg-danger cart-badge-count ms-1">0</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-outline-light me-2" href="login.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-light text-primary fw-bold" href="register.html">Register</a>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
@@ -63,64 +61,39 @@
 
 <main>
   <div class="container my-5">
-    <h1 class="mb-4">Your Cart</h1>
+    <div class="d-flex align-items-center mb-4">
+      <h1 class="fw-bold text-primary mb-0"><i class="fas fa-shopping-basket me-2"></i>Your Shopping Cart</h1>
+    </div>
     
-    <div class="row">
-        <div class="col-md-8">
-            <div class="card mb-3">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <img src="https::/api/placeholder/100/150" alt="Book cover" class="img-fluid">
-                        </div>
-                        <div class="col-md-6">
-                            <h5 class="card-title">The Great Gatsby</h5>
-                            <p class="card-text">F. Scott Fitzgerald</p>
-                            <button class="btn btn-sm btn-outline-danger">Remove</button>
-                        </div>
-                        <div class="col-md-4 text-end">
-                            <p class="fw-bold">$9.99</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card mb-3">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <img src="https::/api/placeholder/100/150" alt="Book cover" class="img-fluid">
-                        </div>
-                        <div class="col-md-6">
-                            <h5 class="card-title">To Kill a Mockingbird</h5>
-                            <p class="card-text">Harper Lee</p>
-                            <button class="btn btn-sm btn-outline-danger">Remove</button>
-                        </div>
-                        <div class="col-md-4 text-end">
-                            <p class="fw-bold">$12.99</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="row g-4">
+        <!-- Cart Items List (Rendered dynamically) -->
+        <div class="col-md-8" id="cartItemsContainer">
+          <!-- Dynamic Cart Items -->
         </div>
+
+        <!-- Order Summary -->
         <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Order Summary</h5>
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4">
+                    <h4 class="card-title fw-bold mb-3 border-bottom pb-2">Order Summary</h4>
                     <div class="d-flex justify-content-between mb-2">
-                        <span>Subtotal:</span>
-                        <span>$22.98</span>
+                        <span class="text-muted">Subtotal:</span>
+                        <span class="fw-bold" id="cartSubtotal">$0.00</span>
                     </div>
                     <div class="d-flex justify-content-between mb-2">
-                        <span>Tax:</span>
-                        <span>$2.30</span>
+                        <span class="text-muted">Estimated Tax (10%):</span>
+                        <span class="fw-bold" id="cartTax">$0.00</span>
                     </div>
-                    <hr>
-                    <div class="d-flex justify-content-between mb-3">
+                    <div class="d-flex justify-content-between mb-3 fs-5">
                         <span class="fw-bold">Total:</span>
-                        <span class="fw-bold">$25.28</span>
+                        <span class="fw-bold text-success" id="cartTotal">$0.00</span>
                     </div>
-                    <button class="btn btn-primary w-100 mb-2">Proceed to Checkout</button>
-                    <button class="btn btn-outline-secondary w-100">Continue Shopping</button>
+                    <button class="btn btn-success w-100 py-2 mb-2 fw-bold shadow-sm" id="checkoutBtn">
+                      <i class="fas fa-lock me-2"></i>Proceed to Checkout
+                    </button>
+                    <a href="books.html" class="btn btn-outline-primary w-100 py-2">
+                      <i class="fas fa-arrow-left me-2"></i>Continue Shopping
+                    </a>
                 </div>
             </div>
         </div>
@@ -128,67 +101,59 @@
 </div>
 </main>
 
- <!-- Footer -->
-
- <footer class="bg-primary text-white mt-5">
-  <div class="container py-4">
-    <div class="row">
-      <div class="col-lg-4 col-md-6 mb-4">
-        <h5 class="text-uppercase">About Company</h5>
-        <p>We are dedicated to providing high-quality products and excellent customer service.</p>
-        <h6>Follow Us</h6>
-        <div class="social-icons">
-          <a href="#" class="text-white me-2 facebook" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-          <a href="#" class="text-white me-2 twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="text-white me-2 instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="text-white linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+  <!-- Footer -->
+  <footer class="bg-primary text-white mt-5">
+    <div class="container py-4">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <h5 class="text-uppercase fw-bold"><i class="fas fa-book-reader me-2"></i>eBooks Store</h5>
+          <p>We are dedicated to providing high-quality digital books and an exceptional reading experience.</p>
+          <h6>Follow Us</h6>
+          <div class="social-icons">
+            <a href="#" class="facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h5 class="text-uppercase fw-bold">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+            <li><a href="about.html" class="text-white text-decoration-none">About Us</a></li>
+            <li><a href="books.html" class="text-white text-decoration-none">Books Catalog</a></li>
+            <li><a href="contact.html" class="text-white text-decoration-none">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h5 class="text-uppercase fw-bold">Contact Info</h5>
+          <p><i class="fas fa-map-marker-alt me-2"></i> 123 Reader St, Book City, BC 10001</p>
+          <p><i class="fas fa-phone me-2"></i> +1 800 123 4567</p>
+          <p><i class="fas fa-envelope me-2"></i> support@ebooks.com</p>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h5 class="text-uppercase fw-bold">Newsletter</h5>
+          <p>Subscribe to get special eBook discounts!</p>
+          <form id="newsletterForm">
+            <div class="input-group mb-3">
+              <input type="email" class="form-control" placeholder="Enter your email" required aria-label="Email address for newsletter" />
+              <button class="btn btn-light text-primary font-weight-bold" type="submit">Join</button>
+            </div>
+          </form>
         </div>
       </div>
-      <div class="col-lg-2 col-md-6 mb-4">
-        <h5 class="text-uppercase">Quick Links</h5>
-        <ul class="list-unstyled">
-          <li><a href="#" class="text-white text-decoration-none">Home</a></li>
-          <li><a href="#" class="text-white text-decoration-none">About Us</a></li>
-          <li><a href="#" class="text-white text-decoration-none">Services</a></li>
-          <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
-        </ul>
-      </div>
-      <div class="col-lg-3 col-md-6 mb-4">
-        <h5 class="text-uppercase">Contact Us</h5>
-        <p><i class="fas fa-map-marker-alt me-2"></i> 123 Street, City, Country</p>
-        <p><i class="fas fa-phone me-2"></i> +1 234 567 8900</p>
-        <p><i class="fas fa-envelope me-2"></i> info@example.com</p>
-      </div>
-      <div class="col-lg-3 col-md-6 mb-4">
-        <h5 class="text-uppercase">Newsletter</h5>
-        <p>Stay updated with our latest news and offers!</p>
-        <form>
-          <div class="input-group mb-3">
-            <input type="email" class="form-control" placeholder="Enter your email" required
-              aria-label="Email address for newsletter">
-            <button class="btn btn-light" type="submit" aria-label="Subscribe to newsletter">Subscribe</button>
-          </div>
-        </form>
+      <hr class="my-4 border-light opacity-50" />
+      <div class="row align-items-center">
+        <div class="col-md-7 text-center text-md-start">
+          <p class="mb-0">&copy; 2026 eBooks Inc. All rights reserved.</p>
+        </div>
+        <div class="col-md-5 text-center text-md-end">
+          <a href="#" class="text-white text-decoration-none me-3">Privacy Policy</a>
+          <a href="#" class="text-white text-decoration-none">Terms of Use</a>
+        </div>
       </div>
     </div>
-    <hr class="my-4">
-    <div class="row align-items-center">
-      <div class="col-md-7 text-center text-md-start">
-        <p class="mb-0">&copy; 2023 Your Company Name. All rights reserved.</p>
-      </div>
-      <div class="col-md-5 text-center text-md-end">
-        <a href="#" class="text-white text-decoration-none me-3">Privacy Policy</a>
-        <a href="#" class="text-white text-decoration-none">Terms of Use</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </footer>
 
 </body>
-
 </html>

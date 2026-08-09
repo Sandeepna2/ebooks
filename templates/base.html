@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}eBooks | Full-Stack Real-Time Bookstore{% endblock %}</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #0d6efd;
+      --bg-light: #f8f9fa;
+      --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --card-shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--bg-light);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+    main { flex: 1; }
+    .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      overflow: hidden;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--card-shadow-hover);
+    }
+    .testimonial-slide {
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+      color: #fff;
+      border-radius: 16px;
+      padding: 2rem;
+    }
+    .nav-cart-link { position: relative; display: inline-flex; align-items: center; }
+    .cart-badge-count { position: absolute; top: 2px; right: -8px; font-size: 0.75rem; transition: transform 0.3s ease; }
+    .cart-badge-bump { transform: scale(1.4); }
+    .live-pulse {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #20c997;
+      box-shadow: 0 0 0 0 rgba(32, 201, 151, 0.7);
+      animation: pulse-green 1.8s infinite;
+      margin-right: 6px;
+    }
+    @keyframes pulse-green {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(32, 201, 151, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(32, 201, 151, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(32, 201, 151, 0); }
+    }
+    .toast-container-custom {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 1080;
+    }
+    .social-icons a {
+      color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 38px;
+      width: 38px;
+      margin: 0 4px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .social-icons a:hover { transform: translateY(-3px); background-color: rgba(255, 255, 255, 0.3); }
+  </style>
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+  <!-- Live Status Header Bar -->
+  <div class="bg-dark text-white py-1 fs-7 border-bottom border-secondary">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+        <span class="live-pulse"></span>
+        <small class="text-light">Real-Time Data Active &bull; SQLite Sync</small>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <small class="text-info"><i class="fas fa-users me-1"></i><span id="active-readers-count">1,248</span> Active Readers Online</small>
+        <small class="text-success"><i class="fas fa-bolt me-1"></i><span id="live-sales-count">342</span> eBooks Downloaded Today</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <div class="bg-primary shadow-sm">
+    <nav class="navbar navbar-expand-lg bg-primary container navbar-dark" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center fw-bold fs-4" href="{% url 'store:home' %}">
+          <i class="fas fa-book-reader me-2"></i>eBooks
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo" aria-controls="navbarTogglerDemo" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'store:home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'store:about' %}">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'store:book_list' %}">Books</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'store:author_list' %}">Authors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'store:contact' %}">Contact</a>
+            </li>
+          </ul>
+
+          <ul class="d-flex navbar-nav ms-auto align-items-center gap-2">
+            <li class="nav-item me-2">
+              <a class="nav-link nav-cart-link" href="{% url 'cart:cart_detail' %}" title="Shopping Cart">
+                <i class="fas fa-shopping-cart fs-5 text-white"></i>
+                <span class="badge bg-danger cart-badge-count ms-1" id="global-cart-badge">{{ cart_count }}</span>
+              </a>
+            </li>
+
+            {% if user.is_authenticated %}
+              <li class="nav-item text-white me-2">
+                <i class="fas fa-user-circle me-1"></i>Hi, <strong>{{ user.username }}</strong>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-outline-light btn-sm" href="{% url 'accounts:logout' %}">Logout</a>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                <a class="btn btn-outline-light btn-sm" href="{% url 'accounts:login' %}">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-light text-primary fw-bold btn-sm" href="{% url 'accounts:register' %}">Register</a>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Real-Time Toast Container -->
+  <div class="toast-container-custom" id="toast-container"></div>
+
+  <!-- Messages Toast / Alert -->
+  {% if messages %}
+    <div class="container mt-3">
+      {% for message in messages %}
+        <div class="alert alert-{{ message.tags|default:'info' }} alert-dismissible fade show shadow-sm" role="alert">
+          <i class="fas fa-info-circle me-2"></i>{{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <!-- Main Content -->
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white mt-5">
+    <div class="container py-4">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <h5 class="text-uppercase fw-bold"><i class="fas fa-book-reader me-2"></i>eBooks Store</h5>
+          <p>Full-stack Django E-Commerce platform providing digital eBooks with real-time API sync and SQLite database.</p>
+          <h6>Follow Us</h6>
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h5 class="text-uppercase fw-bold">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="{% url 'store:home' %}" class="text-white text-decoration-none">Home</a></li>
+            <li><a href="{% url 'store:about' %}" class="text-white text-decoration-none">About Us</a></li>
+            <li><a href="{% url 'store:book_list' %}" class="text-white text-decoration-none">Books Catalog</a></li>
+            <li><a href="{% url 'store:contact' %}" class="text-white text-decoration-none">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h5 class="text-uppercase fw-bold">Contact Info</h5>
+          <p><i class="fas fa-map-marker-alt me-2"></i> 123 Reader St, Book City, BC 10001</p>
+          <p><i class="fas fa-phone me-2"></i> +1 800 123 4567</p>
+          <p><i class="fas fa-envelope me-2"></i> support@ebooks.com</p>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h5 class="text-uppercase fw-bold">Newsletter</h5>
+          <p>Subscribe to get real-time eBook discounts!</p>
+          <form method="post" action="{% url 'store:enquiry_submit' %}">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+              <input type="email" name="email" class="form-control" placeholder="Enter your email" required aria-label="Email address" />
+              <button class="btn btn-light text-primary font-weight-bold" type="submit">Join</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <hr class="my-4 border-light opacity-50" />
+      <div class="row align-items-center">
+        <div class="col-md-7 text-center text-md-start">
+          <p class="mb-0">&copy; 2026 eBooks Inc. Powered by Django, SQLite & Real-Time APIs.</p>
+        </div>
+        <div class="col-md-5 text-center text-md-end">
+          <a href="#" class="text-white text-decoration-none me-3">Privacy Policy</a>
+          <a href="#" class="text-white text-decoration-none">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Real-Time JavaScript Client Utilities -->
+  <script>
+    // Live Toast Notification
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toast-container');
+      if (!container) return;
+
+      const toast = document.createElement('div');
+      toast.className = `alert alert-${type} shadow-lg d-flex align-items-center mb-2 animate__animated animate__fadeInRight`;
+      toast.style.minWidth = '280px';
+      toast.innerHTML = `
+        <i class="fas ${type === 'success' ? 'fa-check-circle text-success' : 'fa-info-circle text-info'} fs-5 me-2"></i>
+        <div>${message}</div>
+        <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
+      `;
+
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.classList.remove('animate__fadeInRight');
+        toast.classList.add('animate__fadeOutRight');
+        setTimeout(() => toast.remove(), 400);
+      }, 3500);
+    }
+
+    // Real-Time Active Readers Counter Simulation
+    setInterval(() => {
+      const activeEl = document.getElementById('active-readers-count');
+      const salesEl = document.getElementById('live-sales-count');
+
+      if (activeEl) {
+        let count = parseInt(activeEl.textContent.replace(',', '')) || 1248;
+        const delta = Math.floor(Math.random() * 5) - 2;
+        count = Math.max(1200, count + delta);
+        activeEl.textContent = count.toLocaleString();
+      }
+
+      if (salesEl && Math.random() > 0.7) {
+        let sales = parseInt(salesEl.textContent) || 342;
+        sales += 1;
+        salesEl.textContent = sales;
+      }
+    }, 4000);
+
+    // Global Real-Time Cart Helper via AJAX
+    document.addEventListener('submit', function(e) {
+      const form = e.target;
+      if (form.getAttribute('action') && form.getAttribute('action').includes('/cart/add/')) {
+        e.preventDefault();
+        const actionUrl = form.getAttribute('action');
+        const formData = new FormData(form);
+
+        fetch(actionUrl + '?format=json', {
+          method: 'POST',
+          headers: {
+            'X-Requested-With': 'XMLHttpRequest'
+          },
+          body: formData
+        })
+        .then(res => res.json())
+        .then(data => {
+          if (data.status === 'success') {
+            const badge = document.getElementById('global-cart-badge');
+            if (badge) {
+              badge.textContent = data.cart_count;
+              badge.classList.add('cart-badge-bump');
+              setTimeout(() => badge.classList.remove('cart-badge-bump'), 300);
+            }
+            showToast(data.message, 'success');
+          }
+        })
+        .catch(err => {
+          form.submit();
+        });
+      }
+    });
+  </script>
+
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

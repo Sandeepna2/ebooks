@@ -3,93 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>eBooks | Login</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="scss/styles.scss" />
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <script type="module" src="js/main.js"></script>
 </head>
 <body>
-    <header class="bg-primary">
-        <nav class="navbar navbar-expand-lg bg-primary container" data-bs-theme="dark" >
+    <header class="bg-primary shadow-sm">
+        <nav class="navbar navbar-expand-lg bg-primary container navbar-dark" data-bs-theme="dark">
           <div class="container-fluid">
-            <a class="navbar-brand" href="/">eBooks</a>
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+              <i class="fas fa-book-reader me-2"></i>eBooks
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link "  href="index.html">Home</a>
+                  <a class="nav-link" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="about.html">About</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/book">Books</a>
+                  <a class="nav-link" href="books.html">Books</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/author">Authors</a>
+                  <a class="nav-link" href="authors.html">Authors</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="contact.html">Contact</a>
                 </li>
-               
               </ul>
-              <ul class="d-flex navbar-nav ms-auto ">
-              <li class="nav-item">
-                <a class="nav-link" href="cart.html"><i class="bi bi-cart4" style="font-size: 1.3rem; color: white;"></i></a>
-              </li>
-             
-               
-              <li class="nav-item">
-                <a class="btn btn-outline-light mx-4 active" aria-current="page" href="login.html">login</a>
-              </li>
-    
+              <ul class="d-flex navbar-nav ms-auto align-items-center">
+                <li class="nav-item me-3">
+                  <a class="nav-link nav-cart-link" href="cart.html" title="Shopping Cart">
+                    <i class="fas fa-shopping-cart fs-5 text-white"></i>
+                    <span class="badge bg-danger cart-badge-count ms-1">0</span>
+                  </a>
+                </li>
                 <li class="nav-item">
-                  <a class="btn btn-outline-light" href="register.html">Register</a>
-                  </li>
-                </ul>
-    
+                  <a class="btn btn-outline-light me-2 active" aria-current="page" href="login.html">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="btn btn-light text-primary fw-bold" href="register.html">Register</a>
+                </li>
+              </ul>
             </div>
           </div>
         </nav>
       </header>
 
    <main>
-    <div class="container  py-4">
+    <div class="container py-5">
       <div class="row justify-content-center">
-          <div class="col-md-6">
-              <div class="card" >
-
-                  <div class="card-body ">
-                      <h2 class="card-title text-center mb-4">Login to E-Bookworm</h2>
-                      <form>
-                        <div class="mb-3">
-                          <label for="name" class="form-label">Name</label>
-                          <input type="name" class="form-control" id="name" required>
+          <div class="col-md-6 col-lg-5">
+              <div class="card shadow-lg border-0">
+                  <div class="card-body p-4 p-md-5">
+                      <div class="text-center mb-4">
+                        <i class="fas fa-user-circle fa-3x text-primary mb-2"></i>
+                        <h2 class="card-title fw-bold">Login to eBooks</h2>
+                        <p class="text-muted small">Welcome back! Please enter your credentials.</p>
                       </div>
+                      <form id="loginForm">
                           <div class="mb-3">
-                              <label for="email" class="form-label">Email address</label>
-                              <input type="email" class="form-control" id="email" required>
+                              <label for="email" class="form-label font-weight-bold">Email address</label>
+                              <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                              </div>
                           </div>
                           <div class="mb-3">
-                              <label for="password" class="form-label">Password</label>
-                              <input type="password" class="form-control" id="password" required>
+                              <label for="password" class="form-label font-weight-bold">Password</label>
+                              <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                <input type="password" class="form-control" id="password" placeholder="••••••••" required>
+                              </div>
                           </div>
-                          <div class="mb-3 form-check">
-                              <input type="checkbox" class="form-check-input" id="rememberMe">
-                              <label class="form-check-label" for="rememberMe">Remember me</label>
+                          <div class="d-flex justify-content-between align-items-center mb-3">
+                              <div class="form-check">
+                                  <input type="checkbox" class="form-check-input" id="rememberMe">
+                                  <label class="form-check-label text-muted small" for="rememberMe">Remember me</label>
+                              </div>
+                              <a href="#" class="text-decoration-none small">Forgot password?</a>
                           </div>
-                          <button type="submit" class="btn btn-primary w-100">Login</button>
+                          <button type="submit" class="btn btn-primary w-100 py-2 fw-bold shadow-sm">
+                            <i class="fas fa-sign-in-alt me-2"></i>Login
+                          </button>
                       </form>
-                      <div class="text-center mt-3">
-                          <a href="#" class="text-decoration-none">Forgot password?</a>
-                      </div>
-                      <hr>
+                      <hr class="my-4">
                       <div class="text-center">
-                          <p>Don't have an account? <a href="#" class="text-decoration-none">Register here</a></p>
+                          <p class="mb-0 text-muted">Don't have an account? <a href="register.html" class="text-primary fw-bold text-decoration-none">Register here</a></p>
                       </div>
                   </div>
               </div>
@@ -98,53 +104,51 @@
   </div>
    </main>
 
-   <!-- Footer -->
-
+  <!-- Footer -->
   <footer class="bg-primary text-white mt-5">
     <div class="container py-4">
       <div class="row">
         <div class="col-lg-4 col-md-6 mb-4">
-          <h5 class="text-uppercase">About Company</h5>
-          <p>We are dedicated to providing high-quality products and excellent customer service.</p>
+          <h5 class="text-uppercase fw-bold"><i class="fas fa-book-reader me-2"></i>eBooks Store</h5>
+          <p>We are dedicated to providing high-quality digital books and an exceptional reading experience.</p>
           <h6>Follow Us</h6>
           <div class="social-icons">
-            <a href="#" class="text-white me-2 facebook" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="text-white me-2 twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="text-white me-2 instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="text-white linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
           </div>
         </div>
         <div class="col-lg-2 col-md-6 mb-4">
-          <h5 class="text-uppercase">Quick Links</h5>
+          <h5 class="text-uppercase fw-bold">Quick Links</h5>
           <ul class="list-unstyled">
-            <li><a href="#" class="text-white text-decoration-none">Home</a></li>
-            <li><a href="#" class="text-white text-decoration-none">About Us</a></li>
-            <li><a href="#" class="text-white text-decoration-none">Services</a></li>
-            <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
+            <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+            <li><a href="about.html" class="text-white text-decoration-none">About Us</a></li>
+            <li><a href="books.html" class="text-white text-decoration-none">Books Catalog</a></li>
+            <li><a href="contact.html" class="text-white text-decoration-none">Contact Us</a></li>
           </ul>
         </div>
         <div class="col-lg-3 col-md-6 mb-4">
-          <h5 class="text-uppercase">Contact Us</h5>
-          <p><i class="fas fa-map-marker-alt me-2"></i> 123 Street, City, Country</p>
-          <p><i class="fas fa-phone me-2"></i> +1 234 567 8900</p>
-          <p><i class="fas fa-envelope me-2"></i> info@example.com</p>
+          <h5 class="text-uppercase fw-bold">Contact Info</h5>
+          <p><i class="fas fa-map-marker-alt me-2"></i> 123 Reader St, Book City, BC 10001</p>
+          <p><i class="fas fa-phone me-2"></i> +1 800 123 4567</p>
+          <p><i class="fas fa-envelope me-2"></i> support@ebooks.com</p>
         </div>
         <div class="col-lg-3 col-md-6 mb-4">
-          <h5 class="text-uppercase">Newsletter</h5>
-          <p>Stay updated with our latest news and offers!</p>
-          <form>
+          <h5 class="text-uppercase fw-bold">Newsletter</h5>
+          <p>Subscribe to get special eBook discounts!</p>
+          <form id="newsletterForm">
             <div class="input-group mb-3">
-              <input type="email" class="form-control" placeholder="Enter your email" required
-                aria-label="Email address for newsletter">
-              <button class="btn btn-light" type="submit" aria-label="Subscribe to newsletter">Subscribe</button>
+              <input type="email" class="form-control" placeholder="Enter your email" required aria-label="Email address for newsletter" />
+              <button class="btn btn-light text-primary font-weight-bold" type="submit">Join</button>
             </div>
           </form>
         </div>
       </div>
-      <hr class="my-4">
+      <hr class="my-4 border-light opacity-50" />
       <div class="row align-items-center">
         <div class="col-md-7 text-center text-md-start">
-          <p class="mb-0">&copy; 2023 Your Company Name. All rights reserved.</p>
+          <p class="mb-0">&copy; 2026 eBooks Inc. All rights reserved.</p>
         </div>
         <div class="col-md-5 text-center text-md-end">
           <a href="#" class="text-white text-decoration-none me-3">Privacy Policy</a>
@@ -153,11 +157,5 @@
       </div>
     </div>
   </footer>
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

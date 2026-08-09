@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}eBooks | About Us{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="text-center mb-5">
+    <h1 class="display-5 fw-bold text-primary mb-3">About eBooks Store</h1>
+    <p class="lead text-muted mx-auto" style="max-width: 700px;">
+      Empowering readers worldwide with instant access to high-quality digital literature, technical guides, and timeless classics.
+    </p>
+  </div>
+
+  <div class="row align-items-center mb-5">
+    <div class="col-md-6">
+      <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=800&q=80" alt="Library" class="img-fluid rounded shadow">
+    </div>
+    <div class="col-md-6 mt-4 mt-md-0">
+      <h3 class="fw-bold mb-3">Our Mission</h3>
+      <p class="text-secondary">
+        Founded in 2026, eBooks is dedicated to building seamless digital reading experiences. Powered by Python Django and SQLite, our platform allows book lovers to discover, preview, and collect digital titles across all devices.
+      </p>
+      <div class="row g-3 mt-3">
+        <div class="col-6">
+          <div class="border rounded p-3 text-center bg-white shadow-sm">
+            <h2 class="fw-bold text-primary mb-1">10,000+</h2>
+            <p class="text-muted small mb-0">eBooks Distributed</p>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="border rounded p-3 text-center bg-white shadow-sm">
+            <h2 class="fw-bold text-success mb-1">99.9%</h2>
+            <p class="text-muted small mb-0">Uptime & Instant Downloads</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>eBooks | Register Account</title>
+  <title>eBooks | Complete Books Catalog</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -31,7 +31,7 @@
               <a class="nav-link" href="about.html">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="books.html">Books</a>
+              <a class="nav-link active" aria-current="page" href="books.html">Books</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="authors.html">Authors</a>
@@ -51,7 +51,7 @@
               <a class="btn btn-outline-light me-2" href="login.html">Login</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-light text-primary fw-bold active" aria-current="page" href="register.html">Register</a>
+              <a class="btn btn-light text-primary fw-bold" href="register.html">Register</a>
             </li>
           </ul>
         </div>
@@ -59,66 +59,43 @@
     </nav>
   </header>
 
+  <!-- Main section -->
   <main>
-    <div class="container py-5">
-      <div class="row justify-content-center">
-        <div class="col-md-7 col-lg-6">
-          <div class="card shadow-lg border-0">
-            <div class="card-body p-4 p-md-5">
-              <div class="text-center mb-4">
-                <i class="fas fa-user-plus fa-3x text-primary mb-2"></i>
-                <h2 class="card-title fw-bold">Create an Account</h2>
-                <p class="text-muted small">Join thousands of eBook readers today!</p>
-              </div>
-              <form id="registerForm">
-                <div class="row g-3 mb-3">
-                  <div class="col-md-6">
-                    <label for="firstName" class="form-label font-weight-bold">First Name</label>
-                    <input type="text" class="form-control" id="firstName" placeholder="John" required>
-                  </div>
-                  <div class="col-md-6">
-                    <label for="lastName" class="form-label font-weight-bold">Last Name</label>
-                    <input type="text" class="form-control" id="lastName" placeholder="Doe" required>
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <label for="email" class="form-label font-weight-bold">Email address</label>
-                  <div class="input-group">
-                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                    <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <label for="password" class="form-label font-weight-bold">Password</label>
-                  <div class="input-group">
-                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                    <input type="password" class="form-control" id="password" placeholder="••••••••" required>
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <label for="confirmPassword" class="form-label font-weight-bold">Confirm Password</label>
-                  <div class="input-group">
-                    <span class="input-group-text"><i class="fas fa-check-double"></i></span>
-                    <input type="password" class="form-control" id="confirmPassword" placeholder="••••••••" required>
-                  </div>
-                </div>
-                <div class="mb-3 form-check">
-                  <input type="checkbox" class="form-check-input" id="termsAgree" required>
-                  <label class="form-check-label text-muted small" for="termsAgree">I agree to the <a href="#"
-                      class="text-primary text-decoration-none">Terms and Conditions</a></label>
-                </div>
-                <button type="submit" class="btn btn-primary w-100 py-2 fw-bold shadow-sm">
-                  <i class="fas fa-user-check me-2"></i>Register
-                </button>
-              </form>
-              <hr class="my-4">
-              <div class="text-center">
-                <p class="mb-0 text-muted">Already have an account? <a href="login.html"
-                    class="text-primary fw-bold text-decoration-none">Login here</a></p>
-              </div>
+    <div class="container my-5">
+      <div class="text-center mb-4">
+        <h1 class="fw-bold display-5 text-primary">eBooks Catalog</h1>
+        <p class="lead text-muted">Explore our digital collection of bestsellers, fiction, and classics.</p>
+      </div>
+
+      <!-- Search and Filter Bar -->
+      <div class="card p-3 shadow-sm mb-4 border-0">
+        <div class="row g-3 align-items-center">
+          <div class="col-md-7">
+            <div class="input-group">
+              <span class="input-group-text bg-white border-end-0"><i class="fas fa-search text-muted"></i></span>
+              <input type="text" id="bookSearchInput" class="form-control border-start-0 ps-0" placeholder="Search by title or author name...">
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="input-group">
+              <span class="input-group-text bg-white border-end-0"><i class="fas fa-filter text-muted"></i></span>
+              <select id="categoryFilterSelect" class="form-select border-start-0 ps-0">
+                <option value="">All Categories</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Mystery">Mystery</option>
+                <option value="Romance">Romance</option>
+                <option value="Classic">Classic</option>
+                <option value="Sci-Fi">Sci-Fi</option>
+                <option value="Fiction">Fiction</option>
+              </select>
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- Books Grid Container -->
+      <div class="row g-4" id="all-books-container">
+        <!-- Rendered by main.js -->
       </div>
     </div>
   </main>
@@ -149,8 +126,8 @@
         </div>
         <div class="col-lg-3 col-md-6 mb-4">
           <h5 class="text-uppercase fw-bold">Contact Info</h5>
-          <p><i class="fas fa-map-marker-alt me-2"></i> 123 Reader St, Book City, BC 50001</p>
-          <p><i class="fas fa-phone me-2"></i> +91 8001234567</p>
+          <p><i class="fas fa-map-marker-alt me-2"></i> 123 Reader St, Book City, BC 10001</p>
+          <p><i class="fas fa-phone me-2"></i> +1 800 123 4567</p>
           <p><i class="fas fa-envelope me-2"></i> support@ebooks.com</p>
         </div>
         <div class="col-lg-3 col-md-6 mb-4">
@@ -158,8 +135,7 @@
           <p>Subscribe to get special eBook discounts!</p>
           <form id="newsletterForm">
             <div class="input-group mb-3">
-              <input type="email" class="form-control" placeholder="Enter your email" required
-                aria-label="Email address for newsletter" />
+              <input type="email" class="form-control" placeholder="Enter your email" required aria-label="Email address for newsletter" />
               <button class="btn btn-light text-primary font-weight-bold" type="submit">Join</button>
             </div>
           </form>
@@ -177,6 +153,7 @@
       </div>
     </div>
   </footer>
+
 </body>
 
 </html>

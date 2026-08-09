@@ -1,59 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
-    
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="scss/styles.scss" />
-    <script type="module" src="js/main.js"></script>
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eBooks | About Us</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <script type="module" src="js/main.js"></script>
 </head>
 <body>
-  <header class="bg-primary">
-    <nav class="navbar navbar-expand-lg bg-primary container" data-bs-theme="dark" >
+  <header class="bg-primary shadow-sm">
+    <nav class="navbar navbar-expand-lg bg-primary container navbar-dark" data-bs-theme="dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/">eBooks</a>
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <i class="fas fa-book-reader me-2"></i>eBooks
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link " href="index.html">Home</a>
+              <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="about.html">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/book">Books</a>
+              <a class="nav-link" href="books.html">Books</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/author">Authors</a>
+              <a class="nav-link" href="authors.html">Authors</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="contact.html">Contact</a>
             </li>
-           
           </ul>
-          <ul class="d-flex navbar-nav ms-auto ">
-          <li class="nav-item">
-            <a class="nav-link" href="cart.html"><i class="bi bi-cart4" style="font-size: 1.3rem; color: white;"></i></a>
-          </li>
-         
-           
-          <li class="nav-item">
-            <a class="btn btn-outline-light mx-4" href="login.html">login</a>
-          </li>
-
+          <ul class="d-flex navbar-nav ms-auto align-items-center">
+            <li class="nav-item me-3">
+              <a class="nav-link nav-cart-link" href="cart.html" title="Shopping Cart">
+                <i class="fas fa-shopping-cart fs-5 text-white"></i>
+                <span class="badge bg-danger cart-badge-count ms-1">0</span>
+              </a>
+            </li>
             <li class="nav-item">
-              <a class="btn btn-outline-light" href="register.html">Register</a>
-              </li>
-            </ul>
-
+              <a class="btn btn-outline-light me-2" href="login.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-light text-primary fw-bold" href="register.html">Register</a>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
@@ -61,131 +58,160 @@
  
   <main>
     <div class="container my-5">
-      <h1 class="text-center mb-5">About Us</h1>
+      <div class="text-center mb-5">
+        <h1 class="fw-bold display-5 text-primary">About eBooks</h1>
+        <p class="lead text-muted">Empowering readers worldwide with instant access to knowledge and stories.</p>
+      </div>
       
-      <div class="row">
-          <div class="col-md-6">
-              <img src="https::/api/placeholder/600/400" alt="People reading ebooks" class="img-fluid rounded mb-3">
+      <div class="row align-items-center g-4">
+        <div class="col-md-6">
+          <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=800&q=80" alt="People reading ebooks" class="img-fluid rounded-3 shadow-lg">
+        </div>
+        <div class="col-md-6">
+          <h2 class="fw-bold mb-3">Our Story</h2>
+          <p>Founded in 2020, eBooks was born out of a passion for literature and a vision to make reading accessible to everyone, everywhere. We believe that knowledge should know no boundaries.</p>
+          <p>What started as a small collection of digital books has now grown into a comprehensive platform offering thousands of titles across various genres, from classic literature to contemporary bestsellers.</p>
+          <div class="row g-3 mt-2">
+            <div class="col-6">
+              <div class="p-3 bg-white rounded shadow-sm text-center">
+                <h3 class="fw-bold text-primary mb-0">50K+</h3>
+                <small class="text-muted">Active Readers</small>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="p-3 bg-white rounded shadow-sm text-center">
+                <h3 class="fw-bold text-success mb-0">10K+</h3>
+                <small class="text-muted">Digital Titles</small>
+              </div>
+            </div>
           </div>
-          <div class="col-md-6">
-              <h2>Our Story</h2>
-              <p>Founded in 2020, E-Bookworm was born out of a passion for literature and a vision to make reading accessible to everyone, everywhere. We believe that knowledge should know no boundaries, and that's why we've dedicated ourselves to bringing a vast library of ebooks right to your fingertips.</p>
-              <p>What started as a small collection of digital books has now grown into a comprehensive platform, offering thousands of titles across various genres, from classic literature to contemporary bestsellers, academic texts to leisure reads.</p>
-          </div>
+        </div>
       </div>
 
-      <div class="row mt-5">
-          <div class="col-md-4">
-              <h3>Our Mission</h3>
-              <p>To democratize knowledge by providing easy access to a world of literature through our extensive ebook collection, fostering a global community of readers and lifelong learners.</p>
+      <div class="row mt-5 g-4">
+        <div class="col-md-4">
+          <div class="card h-100 p-4 border-0 shadow-sm text-center">
+            <div class="card-body">
+              <i class="fas fa-bullseye fa-3x text-primary mb-3"></i>
+              <h3 class="fw-bold">Our Mission</h3>
+              <p class="text-muted">To democratize knowledge by providing easy access to a world of literature through our extensive ebook collection.</p>
+            </div>
           </div>
-          <div class="col-md-4">
-              <h3>Our Vision</h3>
-              <p>To become the go-to platform for digital reading, offering an unparalleled user experience and a diverse range of high-quality ebooks that cater to readers of all ages and interests.</p>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 p-4 border-0 shadow-sm text-center">
+            <div class="card-body">
+              <i class="fas fa-eye fa-3x text-success mb-3"></i>
+              <h3 class="fw-bold">Our Vision</h3>
+              <p class="text-muted">To become the go-to global platform for digital reading, offering an unparalleled user experience for book lovers.</p>
+            </div>
           </div>
-          <div class="col-md-4">
-              <h3>Our Values</h3>
-              <ul>
-                  <li>Accessibility</li>
-                  <li>Diversity</li>
-                  <li>Innovation</li>
-                  <li>Customer-Centric</li>
-                  <li>Environmental Consciousness</li>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 p-4 border-0 shadow-sm text-center">
+            <div class="card-body">
+              <i class="fas fa-heart fa-3x text-danger mb-3"></i>
+              <h3 class="fw-bold">Our Values</h3>
+              <ul class="list-unstyled text-muted text-start mt-2">
+                <li><i class="fas fa-check text-success me-2"></i>Accessibility for All</li>
+                <li><i class="fas fa-check text-success me-2"></i>Diverse Authors & Genres</li>
+                <li><i class="fas fa-check text-success me-2"></i>Continuous Innovation</li>
+                <li><i class="fas fa-check text-success me-2"></i>Reader-Centric Experience</li>
               </ul>
+            </div>
           </div>
+        </div>
       </div>
 
       <div class="row mt-5">
-          <div class="col-12">
-              <h2 class="text-center mb-4">Meet Our Team</h2>
+        <div class="col-12 text-center mb-4">
+          <h2 class="fw-bold">Meet Our Leadership Team</h2>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="card h-100 text-center shadow-sm">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Jane Doe" style="height: 250px; object-fit: cover;">
+            <div class="card-body">
+              <h5 class="card-title fw-bold mb-1">Jane Doe</h5>
+              <p class="card-text text-primary small">Founder & CEO</p>
+            </div>
           </div>
-          <div class="col-md-3">
-              <div class="card">
-                  <img src="https::/api/placeholder/300/300" class="card-img-top" alt="Team member 1">
-                  <div class="card-body">
-                      <h5 class="card-title">Jane Doe</h5>
-                      <p class="card-text">Founder & CEO</p>
-                  </div>
-              </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="card h-100 text-center shadow-sm">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="John Smith" style="height: 250px; object-fit: cover;">
+            <div class="card-body">
+              <h5 class="card-title fw-bold mb-1">John Smith</h5>
+              <p class="card-text text-primary small">CTO</p>
+            </div>
           </div>
-          <div class="col-md-3">
-              <div class="card">
-                  <img src="https::/api/placeholder/300/300" class="card-img-top" alt="Team member 2">
-                  <div class="card-body">
-                      <h5 class="card-title">John Smith</h5>
-                      <p class="card-text">CTO</p>
-                  </div>
-              </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="card h-100 text-center shadow-sm">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Emily Brown" style="height: 250px; object-fit: cover;">
+            <div class="card-body">
+              <h5 class="card-title fw-bold mb-1">Emily Brown</h5>
+              <p class="card-text text-primary small">Head of Content</p>
+            </div>
           </div>
-          <div class="col-md-3">
-              <div class="card">
-                  <img src="https::/api/placeholder/300/300" class="card-img-top" alt="Team member 3">
-                  <div class="card-body">
-                      <h5 class="card-title">Emily Brown</h5>
-                      <p class="card-text">Head of Content</p>
-                  </div>
-              </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="card h-100 text-center shadow-sm">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Michael Lee" style="height: 250px; object-fit: cover;">
+            <div class="card-body">
+              <h5 class="card-title fw-bold mb-1">Michael Lee</h5>
+              <p class="card-text text-primary small">UX Designer</p>
+            </div>
           </div>
-          <div class="col-md-3">
-              <div class="card">
-                  <img src="https::/api/placeholder/300/300" class="card-img-top" alt="Team member 4">
-                  <div class="card-body">
-                      <h5 class="card-title">Michael Lee</h5>
-                      <p class="card-text">UX Designer</p>
-                  </div>
-              </div>
-          </div>
+        </div>
       </div>
-  </div>
+    </div>
   </main>
 
   <!-- Footer -->
-
   <footer class="bg-primary text-white mt-5">
     <div class="container py-4">
       <div class="row">
         <div class="col-lg-4 col-md-6 mb-4">
-          <h5 class="text-uppercase">About Company</h5>
-          <p>We are dedicated to providing high-quality products and excellent customer service.</p>
+          <h5 class="text-uppercase fw-bold"><i class="fas fa-book-reader me-2"></i>eBooks Store</h5>
+          <p>We are dedicated to providing high-quality digital books and an exceptional reading experience.</p>
           <h6>Follow Us</h6>
           <div class="social-icons">
-            <a href="#" class="text-white me-2 facebook" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="text-white me-2 twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="text-white me-2 instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="text-white linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
           </div>
         </div>
         <div class="col-lg-2 col-md-6 mb-4">
-          <h5 class="text-uppercase">Quick Links</h5>
+          <h5 class="text-uppercase fw-bold">Quick Links</h5>
           <ul class="list-unstyled">
-            <li><a href="#" class="text-white text-decoration-none">Home</a></li>
-            <li><a href="#" class="text-white text-decoration-none">About Us</a></li>
-            <li><a href="#" class="text-white text-decoration-none">Services</a></li>
-            <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
+            <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+            <li><a href="about.html" class="text-white text-decoration-none">About Us</a></li>
+            <li><a href="books.html" class="text-white text-decoration-none">Books Catalog</a></li>
+            <li><a href="contact.html" class="text-white text-decoration-none">Contact Us</a></li>
           </ul>
         </div>
         <div class="col-lg-3 col-md-6 mb-4">
-          <h5 class="text-uppercase">Contact Us</h5>
-          <p><i class="fas fa-map-marker-alt me-2"></i> 123 Street, City, Country</p>
-          <p><i class="fas fa-phone me-2"></i> +1 234 567 8900</p>
-          <p><i class="fas fa-envelope me-2"></i> info@example.com</p>
+          <h5 class="text-uppercase fw-bold">Contact Info</h5>
+          <p><i class="fas fa-map-marker-alt me-2"></i> 123 Reader St, Book City, BC 10001</p>
+          <p><i class="fas fa-phone me-2"></i> +1 800 123 4567</p>
+          <p><i class="fas fa-envelope me-2"></i> support@ebooks.com</p>
         </div>
         <div class="col-lg-3 col-md-6 mb-4">
-          <h5 class="text-uppercase">Newsletter</h5>
-          <p>Stay updated with our latest news and offers!</p>
-          <form>
+          <h5 class="text-uppercase fw-bold">Newsletter</h5>
+          <p>Subscribe to get special eBook discounts!</p>
+          <form id="newsletterForm">
             <div class="input-group mb-3">
-              <input type="email" class="form-control" placeholder="Enter your email" required
-                aria-label="Email address for newsletter">
-              <button class="btn btn-light" type="submit" aria-label="Subscribe to newsletter">Subscribe</button>
+              <input type="email" class="form-control" placeholder="Enter your email" required aria-label="Email address for newsletter" />
+              <button class="btn btn-light text-primary font-weight-bold" type="submit">Join</button>
             </div>
           </form>
         </div>
       </div>
-      <hr class="my-4">
+      <hr class="my-4 border-light opacity-50" />
       <div class="row align-items-center">
         <div class="col-md-7 text-center text-md-start">
-          <p class="mb-0">&copy; 2023 Your Company Name. All rights reserved.</p>
+          <p class="mb-0">&copy; 2026 eBooks Inc. All rights reserved.</p>
         </div>
         <div class="col-md-5 text-center text-md-end">
           <a href="#" class="text-white text-decoration-none me-3">Privacy Policy</a>

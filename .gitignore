@@ -1,0 +1,20 @@
+# Parcel & Build Artifacts
+.parcel-cache/
+dist/
+node_modules/
+
+# Python & Django
+__pycache__/
+*.py[cod]
+*$py.class
+*.sqlite3
+.env
+.venv/
+env/
+venv/
+
+# IDE & OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

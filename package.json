@@ -1,31 +1,27 @@
 {
-  
-    "name": "ebooks_ui",
-    "version": "1.0.0",
-    "scripts": {
-      "clean": "parcel clean",
-      "build": "parcel build src/index.html",
-      "start": "parcel src/index.html"
-    },
+  "name": "ebooks_app",
+  "version": "1.0.0",
+  "description": "Full-Stack Django & SQLite E-Commerce Bookstore Web Application with Real-Time Data APIs",
+  "scripts": {
+    "setup": "python manage.py makemigrations && python manage.py migrate && python seed_db.py",
+    "start": "python manage.py runserver 8000",
+    "dev": "python setup.py"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Sandeepna2/ebooks_ui.git"
   },
   "keywords": [
-    "html",
-    "css",
-    "javascript"
+    "django",
+    "python",
+    "sqlite",
+    "bootstrap",
+    "javascript",
+    "ebooks",
+    "full-stack"
   ],
   "author": "Sandeep",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Sandeepna2/ebooks_ui/issues"
-  },
-  "homepage": "https://github.com/Sandeepna2/ebooks_ui#readme",
-  "devDependencies": {
-    "@parcel/transformer-sass": "^2.12.0",
-    "parcel": "^2.12.0"
-  },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",

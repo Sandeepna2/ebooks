@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}eBooks | Order Confirmation #{{ order.id }}{% endblock %}
+
+{% block content %}
+<div class="container my-5 text-center">
+  <div class="card p-5 shadow mx-auto" style="max-width: 650px;">
+    <div class="text-success mb-3">
+      <i class="fas fa-check-circle fa-5x"></i>
+    </div>
+    <h1 class="fw-bold mb-2">Order Confirmed!</h1>
+    <p class="text-muted lead mb-4">Thank you for your purchase, <strong>{{ order.full_name }}</strong>.</p>
+
+    <div class="bg-light p-4 rounded text-start mb-4">
+      <h5 class="fw-bold text-primary mb-3">Order #{{ order.id }} Details</h5>
+      <p class="mb-1"><strong>Status:</strong> <span class="badge bg-success">Completed</span></p>
+      <p class="mb-1"><strong>Date:</strong> {{ order.created_at|date:"M d, Y H:i" }}</p>
+      <p class="mb-1"><strong>Email Sent To:</strong> {{ order.email }}</p>
+      <hr />
+      <h6 class="fw-bold mb-2">Purchased eBooks:</h6>
+      <ul class="list-group list-group-flush mb-3">
+        {% for item in order.items.all %}
+          <li class="list-group-item bg-transparent d-flex justify-content-between align-items-center">
+            <span>{{ item.quantity }}x {{ item.book.title }}</span>
+            <span class="fw-bold text-success">${{ item.price }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+      <div class="d-flex justify-content-between fw-bold fs-5 text-success border-top pt-2">
+        <span>Total Amount Paid:</span>
+        <span>${{ order.total_price }}</span>
+      </div>
+    </div>
+
+    <div>
+      <a href="{% url 'store:book_list' %}" class="btn btn-primary btn-lg px-4 me-2">Browse More Books</a>
+      <a href="{% url 'store:home' %}" class="btn btn-outline-secondary btn-lg px-4">Back to Home</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

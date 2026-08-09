@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eBooks | Book Details</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script type="module" src="js/main.js"></script>
+</head>
+
+<body>
+    <header class="bg-primary shadow-sm">
+      <nav class="navbar navbar-expand-lg bg-primary container navbar-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <i class="fas fa-book-reader me-2"></i>eBooks
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="books.html">Books</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="authors.html">Authors</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+            <ul class="d-flex navbar-nav ms-auto align-items-center">
+              <li class="nav-item me-3">
+                <a class="nav-link nav-cart-link" href="cart.html" title="Shopping Cart">
+                  <i class="fas fa-shopping-cart fs-5 text-white"></i>
+                  <span class="badge bg-danger cart-badge-count ms-1">0</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-outline-light me-2" href="login.html">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-light text-primary fw-bold" href="register.html">Register</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+        <div class="container my-5">
+            <div class="card p-4 shadow-lg border-0 mb-5">
+              <div class="row g-4">
+                  <!-- Left Column for Image -->
+                  <div class="col-md-5 text-center">
+                      <img id="detail-book-img" src="./assets/images/book1.jpg" class="img-fluid rounded shadow" alt="Book Cover" style="max-height: 420px; object-fit: cover;">
+                  </div>
+
+                  <!-- Right Column for Book Details -->
+                  <div class="col-md-7 d-flex flex-column">
+                      <span class="badge bg-primary align-self-start mb-2 px-3 py-2 fs-6" id="detail-book-category">Fantasy</span>
+                      <h2 class="display-6 fw-bold" id="detail-book-title">The Enchanted Forest</h2>
+                      <h5 class="text-muted mb-3" id="detail-book-author">Author: Emily Winters</h5>
+                      <div class="mb-3">
+                        <span class="text-warning fs-5"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star-half-alt"></i></span>
+                        <span class="ms-2 text-muted fw-bold">4.8 (124 reviews)</span>
+                      </div>
+                      <h3 class="text-success fw-bold mb-3" id="detail-book-price">$19.99</h3>
+                      <p class="lead text-secondary mb-4" id="detail-book-desc">
+                        In a realm where magic thrives, a young girl named Clara stumbles upon an ancient forest filled with mythical creatures and hidden wonders.
+                      </p>
+                      
+                      <div class="mt-auto d-flex gap-3">
+                        <button class="btn btn-success btn-lg px-4 fw-bold shadow-sm" id="detail-buy-btn" data-book-id="1">
+                          <i class="fas fa-shopping-cart me-2"></i>Add to Cart
+                        </button>
+                        <a href="books.html" class="btn btn-outline-secondary btn-lg px-4">Back to Books</a>
+                      </div>
+                  </div>
+              </div>
+            </div>
+
+            <!-- Customer Reviews -->
+            <div class="card p-4 shadow-sm border-0">
+                <h3 class="fw-bold mb-4 border-bottom pb-2"><i class="fas fa-comments text-primary me-2"></i>Customer Reviews</h3>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="p-3 bg-light rounded shadow-sm">
+                            <div class="d-flex justify-content-between mb-2">
+                              <strong>John Smith</strong>
+                              <span class="text-warning"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                            </div>
+                            <p class="mb-0 text-muted">Great book! Highly recommend to any reader looking for immersive story-telling.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-3 bg-light rounded shadow-sm">
+                            <div class="d-flex justify-content-between mb-2">
+                              <strong>Emma Brown</strong>
+                              <span class="text-warning"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                            </div>
+                            <p class="mb-0 text-muted">An enlightening read, loved every page. The download was instant and crisp!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white mt-5">
+      <div class="container py-4">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <h5 class="text-uppercase fw-bold"><i class="fas fa-book-reader me-2"></i>eBooks Store</h5>
+            <p>We are dedicated to providing high-quality digital books and an exceptional reading experience.</p>
+            <h6>Follow Us</h6>
+            <div class="social-icons">
+              <a href="#" class="facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6 mb-4">
+            <h5 class="text-uppercase fw-bold">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+              <li><a href="about.html" class="text-white text-decoration-none">About Us</a></li>
+              <li><a href="books.html" class="text-white text-decoration-none">Books Catalog</a></li>
+              <li><a href="contact.html" class="text-white text-decoration-none">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <h5 class="text-uppercase fw-bold">Contact Info</h5>
+            <p><i class="fas fa-map-marker-alt me-2"></i> 123 Reader St, Book City, BC 10001</p>
+            <p><i class="fas fa-phone me-2"></i> +1 800 123 4567</p>
+            <p><i class="fas fa-envelope me-2"></i> support@ebooks.com</p>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <h5 class="text-uppercase fw-bold">Newsletter</h5>
+            <p>Subscribe to get special eBook discounts!</p>
+            <form id="newsletterForm">
+              <div class="input-group mb-3">
+                <input type="email" class="form-control" placeholder="Enter your email" required aria-label="Email address for newsletter" />
+                <button class="btn btn-light text-primary font-weight-bold" type="submit">Join</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <hr class="my-4 border-light opacity-50" />
+        <div class="row align-items-center">
+          <div class="col-md-7 text-center text-md-start">
+            <p class="mb-0">&copy; 2026 eBooks Inc. All rights reserved.</p>
+          </div>
+          <div class="col-md-5 text-center text-md-end">
+            <a href="#" class="text-white text-decoration-none me-3">Privacy Policy</a>
+            <a href="#" class="text-white text-decoration-none">Terms of Use</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+</body>
+</html>

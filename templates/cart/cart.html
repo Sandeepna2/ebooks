@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %}eBooks | Shopping Cart{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <h1 class="fw-bold mb-4"><i class="fas fa-shopping-cart text-primary me-2"></i>Shopping Cart</h1>
+
+  {% if cart %}
+    <div class="row">
+      <div class="col-lg-8">
+        {% for item in cart %}
+          <div class="card mb-3 shadow-sm">
+            <div class="card-body">
+              <div class="row align-items-center">
+                <div class="col-md-2 text-center">
+                  <img src="{{ item.image }}" alt="{{ item.title }}" class="img-fluid rounded" style="max-height: 100px; object-fit: cover;">
+                </div>
+                <div class="col-md-5 mt-2 mt-md-0">
+                  <h5 class="card-title mb-1">{{ item.title }}</h5>
+                  <p class="card-text text-muted small mb-2">by {{ item.author }}</p>
+                  <a href="{% url 'cart:cart_remove' item.book.id %}" class="btn btn-sm btn-outline-danger">
+                    <i class="fas fa-trash me-1"></i> Remove
+                  </a>
+                </div>
+                <div class="col-md-3 my-2 my-md-0">
+                  <form method="post" action="{% url 'cart:cart_update' item.book.id %}" class="d-flex align-items-center gap-1">
+                    {% csrf_token %}
+                    <input type="number" name="quantity" value="{{ item.quantity }}" min="1" max="10" class="form-control form-control-sm text-center" style="width: 70px;">
+                    <button type="submit" class="btn btn-sm btn-outline-secondary">Update</button>
+                  </form>
+                </div>
+                <div class="col-md-2 text-end">
+                  <p class="fw-bold fs-5 text-success mb-0">${{ item.total_price }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <!-- Order Summary Sidebar -->
+      <div class="col-lg-4">
+        <div class="card p-4 shadow-sm bg-white">
+          <h4 class="fw-bold mb-3 border-bottom pb-2">Order Summary</h4>
+          <div class="d-flex justify-content-between mb-2">
+            <span class="text-muted">Subtotal</span>
+            <span class="fw-bold">${{ cart.get_subtotal_price|floatformat:2 }}</span>
+          </div>
+          <div class="d-flex justify-content-between mb-3">
+            <span class="text-muted">Digital Tax (10%)</span>
+            <span class="fw-bold">${{ cart.get_tax|floatformat:2 }}</span>
+          </div>
+          <hr />
+          <div class="d-flex justify-content-between mb-4 fs-5 fw-bold">
+            <span>Total</span>
+            <span class="text-success">${{ cart.get_total_price|floatformat:2 }}</span>
+          </div>
+          <a href="{% url 'cart:checkout' %}" class="btn btn-success btn-lg w-100 fw-bold shadow-sm">
+            Proceed to Checkout <i class="fas fa-arrow-right ms-1"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  {% else %}
+    <div class="card text-center py-5 shadow-sm">
+      <div class="card-body">
+        <i class="fas fa-shopping-basket fa-4x text-muted mb-3"></i>
+        <h3>Your cart is empty</h3>
+        <p class="text-muted">Looks like you haven't added any eBooks to your cart yet.</p>
+        <a href="{% url 'store:book_list' %}" class="btn btn-primary mt-2">Explore eBooks Catalog</a>
+      </div>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}
